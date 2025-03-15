@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Определяем пакетный менеджер
-if command -v apt &>/dev/null; then
+if command -v brew &>/dev/null; then
   echo "Обнаружен brew, устанавливаем wget..."
   brew install wget git
 else
