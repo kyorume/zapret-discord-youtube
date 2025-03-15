@@ -7,6 +7,10 @@
 > 
 > **Буду рад [⭐ поставленной репозиторию звезде](https://github.com/kartavkun/zapret-discord-youtube/stargazers) (в правом верхнем углу) 🙂**
 
+> [!CAUTION]
+> Войсы в Discord не будут работать. Смиритесь.
+> Почему? Написал [здесь](https://github.com/kartavkun/zapret-discord-youtube/discussions/5#discussioncomment-12512296)
+
 ## Лицензия
 
 Этот проект распространяется на условиях лицензии MIT.  
@@ -21,7 +25,7 @@
 1. **Скачайте и запустите скрипт установки:**
 
    ```bash
-   bash <(curl -s https://raw.githubusercontent.com/kartavkun/zapret-discord-youtube/main/setup.sh)
+   bash <(curl -s https://raw.githubusercontent.com/kartavkun/zapret-discord-youtube/macos/setup.sh)
    ```
 
 Этот скрипт:
