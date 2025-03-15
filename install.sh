@@ -4,12 +4,6 @@ clear
 
 # Функция для установки конфига по умолчанию
 default_install() {
-  echo "Копирование конфига 50-discord..."
-  if ! cp /opt/zapret/init.d/custom.d.examples.linux/50-discord /opt/zapret/init.d/sysv/custom.d/; then
-    echo "Ошибка: не удалось скопировать 50-discord."
-    exit 1
-  fi
-
   echo "Запуск install_easy.sh..."
   if ! /opt/zapret/install_easy.sh; then
     echo "Ошибка: не удалось запустить install_easy.sh."
@@ -94,41 +88,41 @@ general_MGTS2() {
 echo "Выберите конфиг для установки:"
 select config in "general" "general_ALT" "general_ALT2" "general_ALT3" "general_ALT4" "general_ALT5" "general_MGTS" "general_MGTS2"; do
   case $config in
-    "general")
-      general
-      break
-      ;;
-    "general_ALT")
-      general_ALT
-      break
-      ;;
-    "general_ALT2")
-      general_ALT2
-      break
-      ;;
-    "general_ALT3")
-      general_ALT3
-      break
-      ;;
-    "general_ALT4")
-      general_ALT4
-      break
-      ;;
-    "general_ALT5")
-      general_ALT5
-      break
-      ;;
-    "general_MGTS")
-      general_MGTS
-      break
-      ;;
-    "general_MGTS2")
-      general_MGTS2
-      break
-      ;;
-    *)
-      echo "Неверный выбор. Пожалуйста, выберите снова."
-      ;;
+  "general")
+    general
+    break
+    ;;
+  "general_ALT")
+    general_ALT
+    break
+    ;;
+  "general_ALT2")
+    general_ALT2
+    break
+    ;;
+  "general_ALT3")
+    general_ALT3
+    break
+    ;;
+  "general_ALT4")
+    general_ALT4
+    break
+    ;;
+  "general_ALT5")
+    general_ALT5
+    break
+    ;;
+  "general_MGTS")
+    general_MGTS
+    break
+    ;;
+  "general_MGTS2")
+    general_MGTS2
+    break
+    ;;
+  *)
+    echo "Неверный выбор. Пожалуйста, выберите снова."
+    ;;
   esac
 done
 

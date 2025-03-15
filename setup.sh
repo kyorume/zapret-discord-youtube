@@ -1,49 +1,12 @@
 #!/bin/bash
 
-# Функция для установки wget с использованием apt (Debian/Ubuntu)
-install_with_apt() {
-  sudo apt update
-  sudo apt install -y wget git
-}
-
-# Функция для установки wget с использованием yum (CentOS/Fedora)
-install_with_yum() {
-  sudo yum install -y wget git
-}
-
-# Функция для установки wget с использованием dnf (Fedora)
-install_with_dnf() {
-  sudo dnf install -y wget git
-}
-
-# Функция для установки wget с использованием pacman (Arch Linux)
-install_with_pacman() {
-  sudo pacman -Sy --noconfirm wget git
-}
-
-# Функция для установки wget с использованием zypper (openSUSE)
-install_with_zypper() {
-  sudo zypper install -y wget git
-}
-
 # Определяем пакетный менеджер
 if command -v apt &>/dev/null; then
-  echo "Обнаружен apt, устанавливаем wget..."
-  install_with_apt
-elif command -v yum &>/dev/null; then
-  echo "Обнаружен yum, устанавливаем wget..."
-  install_with_yum
-elif command -v dnf &>/dev/null; then
-  echo "Обнаружен dnf, устанавливаем wget..."
-  install_with_dnf
-elif command -v pacman &>/dev/null; then
-  echo "Обнаружен pacman, устанавливаем wget..."
-  install_with_pacman
-elif command -v zypper &>/dev/null; then
-  echo "Обнаружен zypper, устанавливаем wget..."
-  install_with_zypper
+  echo "Обнаружен brew, устанавливаем wget..."
+  brew install wget git
 else
-  echo "Не удалось определить пакетный менеджер. Установите wget вручную."
+  clear
+  echo "Не нашёл установленный Homebrew. Установите Homebrew, потом запускайте скрипт ещё раз."
   exit 1
 fi
 
@@ -94,13 +57,13 @@ if ! git clone https://github.com/kartavkun/zapret-discord-youtube.git "$HOME/za
   rm -rf $HOME/zapret-configs
   if ! git clone https://github.com/kartavkun/zapret-discord-youtube.git "$HOME/zapret-configs"; then
     echo "Ошибка: не удалось клонировать репозиторий с конфигами."
-  exit 1
+    exit 1
   fi
 fi
 
 # Копирование hostlists
 echo "Копирование hostlists..."
-if ! cp -r "$HOME/zapret-configs/hostlists" /opt/zapret/hostlists; then
+if ! sudo cp -r "$HOME/zapret-configs/hostlists" /opt/zapret/hostlists; then
   echo "Ошибка: не удалось скопировать hostlists."
   exit 1
 fi
